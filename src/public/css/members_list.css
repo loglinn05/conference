@@ -32,6 +32,6 @@
 
 #members_list table tbody tr td .avatar {
 	display: inline-block;
-	max-width: 600px;
+	max-width: 400px;
 	min-width: 300px;
 }
