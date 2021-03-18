@@ -30,26 +30,20 @@
 	color: #312731;
 }
 
-#conference .tab .select-wrapper .caret {
-	display: none;
+#conference .tab p input::-webkit-input-placeholder,
+#conference .tab p input::-webkit-input-placeholder,
+#conference .tab div input::-webkit-input-placeholder,
+#conference .tab div input::-webkit-input-placeholder {
+	color: #555;
+	opacity: 0.5;
 }
 
-#conference .tab .select-wrapper #select-options-country .search-wrap .md-form .search {
-	font-weight: 900;
-	color: #b8860b;
-}
-
-#conference .tab .select-wrapper #select-options-country li .filtrable {
-	font-weight: 900;
-	color: #b8860b;
-}
-
-#conference .tab .select-wrapper #select-options-country li:hover .filtrable {
-	background: #b8860b;
-}
-
-#conference .tab .select-wrapper #select-options-country li.active .filtrable {
-	background: #b8860b;
+#conference .tab p input::-moz-input-placeholder,
+#conference .tab p input::-moz-input-placeholder,
+#conference .tab div input::-moz-input-placeholder,
+#conference .tab div input::-moz-input-placeholder {
+	color: #555;
+	opacity: 0.5;
 }
 
 #conference .tab #phone {
@@ -65,6 +59,24 @@
 }
 
 #conference .tab #phone:focus {
+	border-bottom: 1px solid #4285f4;
+	box-shadow: 0px 1px 0px 0px #4285f4;
+}
+
+#conference .tab p textarea {
+	margin-top: 1em;
+	background: transparent;
+	width: 95%;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: 1px solid #dadce0;
+	font-size: 1.25em;
+	color: #312731;
+	outline: none;
+}
+
+#conference .tab p textarea:focus {
 	border-bottom: 1px solid #4285f4;
 	box-shadow: 0px 1px 0px 0px #4285f4;
 }
@@ -95,38 +107,26 @@
 	color: #b8860b !important;
 }
 
-#conference .tab p input::-webkit-input-placeholder,
-#conference .tab p input::-webkit-input-placeholder,
-#conference .tab div input::-webkit-input-placeholder,
-#conference .tab div input::-webkit-input-placeholder {
-	color: #555;
-	opacity: 0.5;
+#conference .tab .select-wrapper .caret {
+	display: none;
 }
 
-#conference .tab p input::-moz-input-placeholder,
-#conference .tab p input::-moz-input-placeholder,
-#conference .tab div input::-moz-input-placeholder,
-#conference .tab div input::-moz-input-placeholder {
-	color: #555;
-	opacity: 0.5;
+#conference .tab .select-wrapper #select-options-country .search-wrap .md-form .search {
+	font-weight: 900;
+	color: #b8860b;
 }
 
-#conference .tab p textarea {
-	margin-top: 1em;
-	background: transparent;
-	width: 95%;
-	border-top: 0px;
-	border-left: 0px;
-	border-right: 0px;
-	border-bottom: 1px solid #dadce0;
-	font-size: 1.25em;
-	color: #312731;
-	outline: none;
+#conference .tab .select-wrapper #select-options-country li .filtrable {
+	font-weight: 900;
+	color: #b8860b;
 }
 
-#conference .tab p textarea:focus {
-	border-bottom: 1px solid #4285f4;
-	box-shadow: 0px 1px 0px 0px #4285f4;
+#conference .tab .select-wrapper #select-options-country li:hover .filtrable {
+	background: #b8860b;
+}
+
+#conference .tab .select-wrapper #select-options-country li.active .filtrable {
+	background: #b8860b;
 }
 
 #conference .form-step-navigation button {

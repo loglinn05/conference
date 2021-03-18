@@ -89,11 +89,8 @@ function fixStepIndicator(n) {
 	x[n].className += " active";
 }
 
-function validateName(value) {
-	var regExp = /^[^\d_!@#$%^&*\(\)"'№;:?\[\]\{\}\/\\<>,\.`~+=]+$/;
-	if (regExp.test(value)) {
-		return true;
-	}
+function filterName(value) {
+	return value.replace(/[\d_!@#$%^&*\(\)"'№;:?\[\]\{\}\/\\<>,\.`~+=]/g, "");
 }
 
 function validateBirthdate(value) {
@@ -124,13 +121,12 @@ function maskPhone(mask) {
 }
 
 function maskPhoneField() {
-	var placeholder = $("#phone").attr("placeholder");
-	var mask = placeholder.replace(/[0-9]/g, "n");
-	maskPhone(mask);
+	maskPhone("(nnn) nnn-nnnn");
 }
 
 function validatePhone(value) {
-	if ($("#phone").intlTelInput("isValidNumber")) {
+	var regExp = /\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}/;
+	if (regExp.test(value)) {
 		return true;
 	} else {
 		return false;
@@ -172,26 +168,29 @@ function validateForm() {
 			(y[i].value == "") &&
 			(y[i].getAttribute("required") == "true")
 		);
-		let validation_condition_2 = (!validateName(y[i].value) &&
-			(
-				(y[i].getAttribute("name") == "first_name") ||
-				(y[i].getAttribute("name") == "last_name")
-			)
-		);
-		let validation_condition_3 = (!validateBirthdate(y[i].value) &&
+		let validation_condition_2 = (!validateBirthdate(y[i].value) &&
 			(y[i].getAttribute("name") == "birthdate")
 		);
-		let validation_condition_4 = (!validatePhone(y[i].value) &&
+		let validation_condition_3 = (!validatePhone(y[i].value) &&
 			(y[i].getAttribute("name") == "phone")
 		);
-		let validation_condition_5 = (!validateEmail(y[i].value) &&
+		let validation_condition_4 = (!validateEmail(y[i].value) &&
 			(y[i].getAttribute("name") == "email")
 		);
-		let validation_condition_6 = (!isEmailUnique(y[i].value) &&
+		let validation_condition_5 = (!isEmailUnique(y[i].value) &&
 			(y[i].getAttribute("name") == "email")
 		);
 
 		if (
+			(y[i].getAttribute("name") == "first_name") ||
+			(y[i].getAttribute("name") == "last_name")
+		) {
+			y[i].value = filterName(y[i].value);
+		}
+
+		if (
+			(y[i].getAttribute("name") == "first_name") ||
+			(y[i].getAttribute("name") == "last_name") ||
 			(y[i].getAttribute("name") == "report_subject") ||
 			(y[i].getAttribute("name") == "company") ||
 			(y[i].getAttribute("name") == "position") ||
@@ -210,19 +209,17 @@ function validateForm() {
 			validation_condition_2 ||
 			validation_condition_3 ||
 			validation_condition_4 ||
-			validation_condition_5 ||
-			validation_condition_6
+			validation_condition_5
 		) {
 			if (validation_condition_1) {
 				message = $(y[i]).attr("field-name") + " field is required.";
 			} else if (
 				validation_condition_2 ||
 				validation_condition_3 ||
-				validation_condition_4 ||
-				validation_condition_5
+				validation_condition_4
 			) {
 				message = $(y[i]).attr("field-name") + " is not valid.";
-			} else if (validation_condition_6) {
+			} else if (validation_condition_5) {
 				message = "An account with " + y[i].value + " email already exists."
 			} else {
 				message = "An error occured.";
@@ -270,7 +267,7 @@ function serializeFirstTabData() {
 		data[$(this).attr("name")] = $(this).val();
 	});
 	data["country"] = $("#country option:selected").attr("country_name");
-	data["phone"] = $("#phone").intlTelInput("getNumber", intlTelInputUtils.numberFormat.E164);
+	data["phone"] = "+" + $("#phone").intlTelInput("getSelectedCountryData").dialCode + " " + $("#phone").val();
 	data = JSON.stringify(data);
 	return data;
 }
@@ -285,7 +282,7 @@ function serializeFormData() {
 		});
 	});
 	data["country"] = $("#country option:selected").attr("country_name");
-	data["phone"] = $("#phone").intlTelInput("getNumber", intlTelInputUtils.numberFormat.E164);
+	data["phone"] = "+" + $("#phone").intlTelInput("getSelectedCountryData").dialCode + " " + $("#phone").val();
 	data["photo"] = avatar;
 	data = JSON.stringify(data);
 	return data;
@@ -403,19 +400,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		initialCountry: "auto",
 		nationalMode: true,
 		separateDialCode: true,
+		autoPlaceholder: "off",
 		utilsScript: '../../public/js/utils.js'
 	});
-	$("#phone").on("focus", function() {
+	$("#phone").on("focus keydown", function () {
 		maskPhoneField();
-		localStorage.setItem("phone_field_placeholder", $("#phone").attr("placeholder"));
-		$(this).attr("placeholder", "");
-	});
-	$("#phone").on("blur", function() {
-		$(this).attr("placeholder", localStorage.getItem("phone_field_placeholder"));
-	});
-	$("#phone").on("keydown", function() {
-		maskPhoneField();
-		localStorage.setItem("phone", $("#phone").val());
 	});
 	if ($("#phone").val() === "") {
 		$("#phone").val(localStorage.getItem("phone"));
@@ -475,6 +464,7 @@ document.addEventListener("DOMContentLoaded", function() {
 $(document).ready(function() {
 	$('.datepicker').pickadate({
 		format: 'yyyy-mm-dd',
+		selectYears: 200,
 		max: Date.now()
 	});
 	$('.mdb-select').materialSelect();
@@ -487,7 +477,9 @@ $(document).ready(function() {
 		localStorage.setItem("country", $("#country option:selected").attr("country_name"));
 	});
 	$("#phone").on("countrychange", function() {
+		maskPhoneField();
 		$("#phone").on("focus", function() {
+			maskPhoneField();
 			if ($("#phone").intlTelInput("getSelectedCountryData").iso2) {
 				localStorage.setItem("phone_field_country_code", $("#phone").intlTelInput("getSelectedCountryData").iso2);
 			}
@@ -501,7 +493,6 @@ $(document).ready(function() {
 	} else {
 		$("#phone").intlTelInput("setCountry", localStorage.getItem("phone_field_country_code"));
 	}
-	$("#email").inputmask("email");
 });
 
 if (ifSubmitted()) {
