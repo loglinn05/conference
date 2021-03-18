@@ -1,7 +1,7 @@
 # Participate in the conference and share the site
 
 ## What is it?
-It's a little site for conference organization. It's located [here](https://angelina.tst.albedo.dev/).
+It's a little site for conference organization. It's located [here](https://angelina.trn.albedo.dev/).
 
 ## Requires
 - [vlucas/phpdotenv](https://packagist.org/packages/vlucas/phpdotenv)
