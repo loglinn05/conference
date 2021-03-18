@@ -405,6 +405,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 	$("#phone").on("focus keydown", function () {
 		maskPhoneField();
+		localStorage.setItem("phone", $("#phone").val());
 	});
 	if ($("#phone").val() === "") {
 		$("#phone").val(localStorage.getItem("phone"));
