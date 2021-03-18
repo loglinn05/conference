@@ -18,7 +18,7 @@
 	<?= view("partials/select_country") ?>
 </p>
 <p>
-	<input type = "tel" id = "phone" name = "phone" required = "true" field-name = "Phone number">
+	<input type = "tel" id = "phone" name = "phone" placeholder = "(555) 555-5555" required = "true" field-name = "Phone number">
 </p>
 <p class = "md-form">
 	<label for = "email">E-mail</label>
