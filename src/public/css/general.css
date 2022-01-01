@@ -1,0 +1,19 @@
+body {
+	background: linear-gradient(90deg, #d4c070, #f3e9c2, #d4c070);
+}
+
+main .container {
+	max-width: 100% !important;
+}
+
+#conference_wrapper, #members_list {
+	background-position: center center !important;
+	background-size: cover !important;
+	width: 100%;
+	min-width: 300px;
+}
+
+#conference h1, #members_list h1 {
+	color: #755751;
+	text-shadow: 2px 2px 1px white;
+}

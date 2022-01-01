@@ -1,0 +1,311 @@
+.iti__flag {
+	background-image: url("../../public/images/flags.png");
+}
+
+#conference_wrapper {
+	margin-top: -0.5em;
+	padding-top: 3em;
+}
+
+#conference {
+	border: 4px double brown;
+	border-radius: 10px;
+}
+
+#conference .tab {
+	display: none;
+}
+
+#conference .tab p label,
+#conference .tab div label {
+	font-size: 1.25em;
+	color: #312731;
+}
+
+#conference .tab p input,
+#conference .tab div input {
+	padding: 10px;
+	width: 95%;
+	font-size: 1.25em;
+	color: #312731;
+}
+
+#conference .tab p input::-webkit-input-placeholder,
+#conference .tab p input::-webkit-input-placeholder,
+#conference .tab div input::-webkit-input-placeholder,
+#conference .tab div input::-webkit-input-placeholder {
+	color: #555;
+	opacity: 0.5;
+}
+
+#conference .tab p input::-moz-input-placeholder,
+#conference .tab p input::-moz-input-placeholder,
+#conference .tab div input::-moz-input-placeholder,
+#conference .tab div input::-moz-input-placeholder {
+	color: #555;
+	opacity: 0.5;
+}
+
+#conference .tab #phone {
+	background: transparent;
+	padding-left: 20%;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: 1px solid #dadce0;
+	font-size: 1.25em;
+	color: #312731;
+	outline: none;
+}
+
+#conference .tab #phone:focus {
+	border-bottom: 1px solid #4285f4;
+	box-shadow: 0px 1px 0px 0px #4285f4;
+}
+
+#conference .tab p textarea {
+	margin-top: 1em;
+	background: transparent;
+	width: 95%;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: 1px solid #dadce0;
+	font-size: 1.25em;
+	color: #312731;
+	outline: none;
+}
+
+#conference .tab p textarea:focus {
+	border-bottom: 1px solid #4285f4;
+	box-shadow: 0px 1px 0px 0px #4285f4;
+}
+
+.picker__date-display {
+	background-color: #b8860b !important;
+}
+
+.picker__day--highlighted {
+	font-weight: 900 !important;
+	color: #b8860b !important;
+}
+
+.picker__day--selected {
+	background-color: #b8860b !important;
+}
+
+.picker__button--today::before,
+.picker__button--clear::before,
+.picker__button--close::before {
+	display: none !important;
+}
+
+.picker__button--today,
+.picker__button--clear,
+.picker__button--close {
+	font-size: 1em !important;
+	color: #b8860b !important;
+}
+
+#conference .tab .select-wrapper .caret {
+	display: none;
+}
+
+#conference .tab .select-wrapper #select-options-country .search-wrap .md-form .search {
+	font-weight: 900;
+	color: #b8860b;
+}
+
+#conference .tab .select-wrapper #select-options-country li .filtrable {
+	font-weight: 900;
+	color: #b8860b;
+}
+
+#conference .tab .select-wrapper #select-options-country li:hover .filtrable {
+	background: #b8860b;
+}
+
+#conference .tab .select-wrapper #select-options-country li.active .filtrable {
+	background: #b8860b;
+}
+
+#conference .form-step-navigation button {
+	background-color: #b8860b;
+	padding-top: 0.25em;
+	padding-left: 1em;
+	padding-bottom: 0.25em;
+	padding-right: 1em;
+	border: 0px;
+	font-size: 1.25em;
+	color: white;
+	outline: none;
+}
+
+#conference .form-steps .step {
+	background-color: #b8860b;
+	height: 2em;
+	width: 2em;
+	margin: 0px 2px;
+	border: none;
+	border-radius: 50%;
+	display: inline-block;
+	opacity: 0.625;
+}
+
+#conference .form-steps .step.active {
+	opacity: 0.8125;
+}
+
+#conference .form-steps .step.finish {
+	opacity: 1;
+}
+
+#conference .social-buttons a {
+	text-decoration: none;
+}
+
+#conference .social-buttons .shares {
+	display: block;
+	margin: 0px auto;
+	text-align: center;
+}
+
+#conference .social-buttons .shares a .share-block {
+	display: inline-block;
+	font-size: 4em;
+}
+
+#conference .social-buttons .shares .share-block:hover {
+	animation: x-shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+	border-color: #0c7fd7;
+}
+
+#conference .social-buttons .shares .facebook {
+	color: #3b5998;
+}
+
+#conference .social-buttons .shares .twitter {
+	color: #55acee;
+}
+
+#conference .social-buttons div #all_members_button,
+#conference .social-buttons div #return_to_the_form_button {
+	background: #b8860b;
+	font-weight: 900;
+	color: #fff;
+}
+
+@keyframes x-shake {
+	10%,
+	90% {
+		transform: translate3d(-1px, 0px, 0px);
+	}
+
+	20%,
+	80% {
+		transform: translate3d(2px, 0px, 0px);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: translate3d(-4px, 0px, 0px);
+	}
+
+	40%,
+	60% {
+		transform: translate3d(4px, 0px, 0px);
+	}
+
+}
+
+@media screen and (max-width:576px) {
+	#conference_wrapper {
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+	}
+
+	#conference .form-step-navigation button {
+		padding-top: 0.125em;
+		padding-left: 0.5em;
+		padding-bottom: 0.125em;
+		padding-right: 0.5em;
+		font-size: 1.125em;
+	}
+
+	#conference .form-steps .step {
+		height: 1.5em;
+		width: 1.5em;
+	}
+
+}
+
+@media screen and (max-width:455px) {
+	#conference_wrapper {
+		padding-left: 1.75em;
+		padding-right: 1.75em;
+	}
+
+	#conference .tab p label,
+	#conference .tab div label {
+		font-size: 1.125em;
+	}
+
+	#conference .tab p input,
+	#conference .tab div input,
+	#conference .tab #phone,
+	#conference .tab p textarea {
+		font-size: 1.125em;
+	}
+
+	#conference .tab p input,
+	#conference .tab div input {
+		padding: 5px;
+	}
+
+	#conference .tab form .file-field {
+		padding-bottom: 1em;
+	}
+
+}
+
+@media screen and (max-width:365px) {
+	#conference .tab p label,
+	#conference .tab div label {
+		font-size: 1em;
+	}
+
+	#conference .tab p input,
+	#conference .tab div input,
+	#conference .tab #phone,
+	#conference .tab p textarea {
+		font-size: 1em;
+	}
+
+	#conference .form-step-navigation button {
+		padding-top: 0.125em;
+		padding-left: 0.5em;
+		padding-bottom: 0.125em;
+		padding-right: 0.5em;
+		font-size: 1em;
+	}
+
+}
+
+@media screen and (max-width:335px) {
+	#conference .form-step-navigation button {
+		padding-top: 0.125em;
+		padding-left: 0.5em;
+		padding-bottom: 0.125em;
+		padding-right: 0.5em;
+		font-size: 0.9em;
+	}
+
+}
+
+@media (-webkit-min-device-pixel-ratio:2), (min-resolution:192dpi) {
+	.iti__flag {
+		background-image: url("../../public/images/flags@2x.png");
+	}
+
+}

@@ -1,0 +1,46 @@
+#members_list {
+	padding-left: 1em;
+	padding-top: 5em;
+	padding-bottom: 5em;
+	padding-right: 1em;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	align-items: stretch;
+	flex-wrap: wrap;
+}
+
+#members_list .card {
+	display: inline-flex;
+	max-width: 25em;
+	margin: 1em;
+}
+
+#members_list .card-title, #members_list .card-subtitle {
+	color: #312731;
+}
+
+#members_list .card-text a {
+	color: #b8860b;
+}
+
+#members_list .card-text a:hover {
+	color: #f3bc36;
+}
+
+#members_list .card-text a:active {
+	color: brown;
+}
+
+@media (max-width: 425px) {
+	#members_list .card-title {
+		font-size: 1.3rem;
+	}
+	#members_list .card-subtitle {
+		font-size: 1.05rem;
+	}
+	#members_list .card-text {
+		font-size: 0.8rem;
+	}
+}

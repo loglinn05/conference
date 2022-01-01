@@ -1,0 +1,11 @@
+{
+	"autoload": {
+		"classmap": [
+			"./"
+		]
+	},
+	"require": {
+		"vlucas/phpdotenv": "^5.3",
+		"jaeger/phpquery-single": "^1.0"
+	}
+}

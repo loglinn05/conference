@@ -1,0 +1,91 @@
+html, body, header, header .view {
+	height: 100%;
+}
+
+header .view .mask .container .row h1 {
+	letter-spacing: 8px;
+	text-shadow: 0px 0px 5px black;
+}
+
+header .view .mask .container .row h5 {
+	letter-spacing: 3px;
+	text-shadow: 0px 0px 5px black;
+}
+
+header .view .mask .container .row .hr-light {
+	border-top: 3px solid #fff;
+	width: 80px;
+}
+
+header .view .mask .container .row .btn {
+	text-shadow: 0px 0px 5px black;
+}
+
+header nav .container .navbar-collapse .navbar-nav .nav-item.active {
+	background-color: rgba(255, 255, 255, 0.25);
+}
+
+header nav .container .navbar-collapse .navbar-nav .nav-item .nav-link {
+	font-weight: 900;
+}
+
+header .top-nav-collapse .container .navbar-collapse .navbar-nav .nav-item .nav-link {
+	color: #312731;
+}
+
+.top-nav-collapse {
+	background-image: linear-gradient(90deg, #d4c070, #f3e9c2, #d4c070);
+	opacity: 0.9;
+}
+
+.navbar:not(.top-nav-collapse) {
+	background: transparent !important;
+}
+
+@media screen and (max-width: 991px) {
+	.navbar-collapse.collapse.show {
+		background-image: linear-gradient(90deg, #d4c070, #f3e9c2, #d4c070);
+		opacity: 0.9;
+	}
+	.navbar-collapse.collapse.show .navbar-nav .nav-item .nav-link {
+		color: #312731;
+	}
+	.navbar:not(.top-nav-collapse) {
+		background: linear-gradient(90deg, rgba(212, 192, 112, 0.9), rgba(243, 233, 194, 0.9), rgba(212, 192, 112, 0.9)) !important;
+	}
+}
+
+@media (max-width: 740px) {
+	html, body, header .view {
+		height: 100vh;
+	}
+}
+
+@media (max-width: 576px) {
+	header .view .mask .container .row h1 {
+		font-size: 2.5em;
+	}
+	header .view .mask .container .row h5 {
+		font-size: 1.25em;
+	}
+	header .view .mask .container .row .btn {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+}
+
+@media (max-width: 426px) {
+	header .view .mask .container .row h1 {
+		font-size: 2.4em;
+	}
+	header .view .mask .container .row h5 {
+		font-size: 1.15em;
+	}
+	header .view .mask .container .row .btn {
+		padding-top: 0.4rem;
+		padding-bottom: 0.4rem;
+		padding-left: 0.75em;
+		padding-right: 0.75em;
+		font-size: 0.85em;
+	}
+}
