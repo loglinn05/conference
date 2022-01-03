@@ -139,10 +139,22 @@ function validateEmail() {
 }
 
 function isEmailUnique() {
-	if (localStorage.getItem("is_email_unique") == 1) {
-		return true;
+	var counter = 0;
+	if (
+		(localStorage.getItem("is_email_unique") != null)
+		||
+		(localStorage.getItem("is_email_unique") != undefined)
+	) {
+		if (localStorage.getItem("is_email_unique") == 1) {
+			return true;
+		} else {
+			return false;
+		}
 	} else {
-		return false;
+		if (counter <= 5) {
+			setTimeout(isEmailUnique, 50);
+		}
+		counter++;
 	}
 }
 
